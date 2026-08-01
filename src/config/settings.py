@@ -10,6 +10,8 @@ from functools import lru_cache
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
+
 class Settings(BaseSettings):
 
     """Application settings loaded from environment variables."""
@@ -35,6 +37,7 @@ class Settings(BaseSettings):
     # AI Providers
 
     OPENAI_API_KEY: str | None = None
+    OPENAI_MODEL: str = "meta-llama/llama-3.3-70b-instruct:free"
 
     ANTHROPIC_API_KEY: str | None = None
 
@@ -49,6 +52,8 @@ class Settings(BaseSettings):
     )
 
 @lru_cache()
+
+
 
 def get_settings() -> Settings:
 
